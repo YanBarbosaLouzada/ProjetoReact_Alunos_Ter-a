@@ -1,0 +1,16 @@
+#navbar{
+    height: 50px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+    align-items: center;
+    color: white;
+}
+
+nav div a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-inline: 10px;
+}
