@@ -1,10 +1,11 @@
 .genre-icon{
     height: 30px;
-    border-radius: 10px;
+    border-radius: 6px;
     background-color: blue;
     color: white;
     display: flex ;
     padding-inline:10px;
     margin: 5px;
     align-items: center;
+    justify-content: center;
 }

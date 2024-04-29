@@ -3,7 +3,7 @@ import GenreIcon from '../GenreIcon/GenreIcon'
 import "./AnimeCard.css"
 function AnimeCard(props) {
     return (
-        <div className='anime-card'>''
+        <div className='anime-card'>
             <div className='card-title'>{props.title}</div>
             <div className="content">
                 <div><img src={props.images.webp.large_image_url} alt="" className='image-card' /></div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useApiAnimeData } from '../../Hook/getAPIData';
 import AnimeCard from '../../Components/AnimeCard/AnimeCard'
 import Popup from '../../Components/Popup/Popup';
+import './AnimePage.css'
 
 function AnimePage() {
 
@@ -34,7 +35,7 @@ function AnimePage() {
 
 
     const hadleInputChange = (e) => {
-        setAnimeDigitado(e.targe.value);
+        setAnimeDigitado(e.target.value);
 
     };
 
@@ -43,7 +44,7 @@ function AnimePage() {
     }
 
     return (
-        <div>
+        <div className='form-anime'>
             <input type="text" placeholder='Coloque o nome do anime' value={animeDigitado} onChange={hadleInputChange}></input>
             <button onClick={() => BuscarOAnime()}> Pesquisar </button>
             {loading && <div>Loading...</div>}

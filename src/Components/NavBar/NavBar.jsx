@@ -11,6 +11,10 @@ function NavBar() {
             <div>
                 <Link to='/anime' > Animes </Link>
             </div>
+            
+            <div>
+                <Link to='/favorito' > Favorito </Link>
+            </div>
         </nav>
     )
 }
