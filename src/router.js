@@ -4,6 +4,8 @@ import AnimePage from "./Pages/AnimePage/AnimePage";
 import Layout from "./Pages/Layout/Layout";
 import { createBrowserRouter } from "react-router-dom";
 import FavoritoPage from "./Pages/FavoritoPage/FavoritoPage";
+import NotesPage from "./Pages/NotesPage/NotesPage";
+
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +26,10 @@ export const router = createBrowserRouter([
                 loader: async () => {
                     return fetch('https://api.jikan.moe/v4/anime?q=naruto')
                 }
+            },
+            {
+                path: "/notes",
+                element: <NotesPage></NotesPage>
             }
 
         ], errorElement: <ErrorPage></ErrorPage>
