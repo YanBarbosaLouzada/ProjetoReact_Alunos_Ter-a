@@ -15,6 +15,11 @@ function NavBar() {
             <div>
                 <Link to='/favorito' > Favorito </Link>
             </div>
+
+            <div>
+                <Link to='/notes' > Anotações </Link>
+            </div>
+
         </nav>
     )
 }

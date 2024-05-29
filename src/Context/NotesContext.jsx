@@ -8,10 +8,27 @@ const NoteContext = createContext();
 const NoteProvider = ({ children }) => {
     const [notes, setNotes] = useState([...mockNotes]);
 
-    const addNote = (description, title) => {
+    const [note, setNote] = useState({ title: "", description: "" });
+    const [isEditing, setEditing] = useState(false);
+    const [idEdit, setIdEdit] = useState("");
+
+    const editNote = (id) => {
+        setNotes(
+            notes.map((n) => {
+                if (n.id === id) {
+                    return { ...note, id: id, date: generateAtualDate() };
+                } else {
+                    return n;
+                }
+            })
+        )
+    }
+
+
+    const addNote = (title, description) => {
         setNotes([
             ...notes,
-            { id: generateRandomId(), description, title, date: generateAtualDate() },
+            { id: generateRandomId(), title, description, date: generateAtualDate() },
         ]);
     };
 
@@ -20,7 +37,7 @@ const NoteProvider = ({ children }) => {
     };
 
     return (
-        <NoteContext.Provider value={{ notes, addNote, deleteNote }}>
+        <NoteContext.Provider value={{ notes, addNote, deleteNote, note, setNote, isEditing, setEditing, idEdit, setIdEdit, editNote }}>
             {children}
         </NoteContext.Provider>
     );
