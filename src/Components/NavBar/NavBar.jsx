@@ -7,7 +7,7 @@ function NavBar() {
             <div>
                 <Link to='/' > Home </Link>
             </div>
-
+            
             <div>
                 <Link to='/anime' > Animes </Link>
             </div>

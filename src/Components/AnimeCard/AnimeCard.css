@@ -1,59 +1,60 @@
 .anime-card {
-    width: 45vw;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    padding-left: 20px;
-    min-height: 400px;
-    background-color: lightblue;
+    width: 300px;
+    max-height: 600px;
+    overflow: hidden;
+    margin: 20px;
+    border: 1px solid #574242;
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
-
+    border-radius: 10px;
+    box-shadow: 1px 5px 5px black;
 }
 
-.card-tilte {
-    font-size: 22px;
-    color: white;
-}
-
-.image-card {
-    width: 200px;
-    height: 300px;
-    border-radius: 8px;
+.card-title {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
 
 .content {
+    flex: 1;
     display: flex;
-    padding-top: 10px;
+    flex-direction: column;
 }
 
-.content div {
-    margin-right: 10px;
+.image-card {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
 }
 
 .sinopse {
-    color: white;
-    font-size: 18px;
-}
-
-.genres {
-    display: flex;
-    justify-content: flex-end;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    flex: 1;
+    background-color: aliceblue;
+    overflow-y: scroll;
+    /* Ocupa o espaço disponível restante */
 }
 
 .studios {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 20px;
-    margin-top: 10px;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 10px;
 }
 
-.studios div {
-    margin-left:10px;
+.genres {
+    background-color: #ddd;
+    padding: 10px;
 }
 
-.genres div{
-    display: flex;
+.studios p,
+.genres div {
+    margin: 0;
 }

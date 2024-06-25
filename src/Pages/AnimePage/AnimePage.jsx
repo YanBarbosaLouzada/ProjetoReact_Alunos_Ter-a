@@ -5,16 +5,17 @@ import Popup from '../../Components/Popup/Popup';
 import './AnimePage.css'
 
 function AnimePage() {
-
-    const [animeName, setAnimeName] = useState("one punch");
-    const [animeDigitado, setAnimeDigitado] = useState("one punch");
+    const [animeName, setAnimeName] = useState("One Punch Man");
+    const [animeDigitado, setAnimeDigitado] = useState("One Punch Man");
     const { animeData, loading, error } = useApiAnimeData(animeName);
-
-    const [popupContent, setPopupContent] = useState({message:'',color:''});
+    // lidando com popup
+    const [popupContent, setPopupContent] = useState({ message: '', color: '' })
     const [showPopup, setShowPopup] = useState(false);
 
+    //criando a função que chama o popup
+
     function showAndHidePopup(message, color) {
-        setPopupContent({ message, color });
+        setPopupContent({ message, color }); //vamos descobrir depois qual vai ser o contexto do popup
         setShowPopup(true);
         setTimeout(() => {
             setShowPopup(false);
@@ -24,43 +25,43 @@ function AnimePage() {
     useEffect(() => {
         if (!loading) {
             if (error) {
-                showAndHidePopup(`Error: ${error}`,`warning`);
+                showAndHidePopup(`Error: ${error}`, 'warning');
             } else {
-                showAndHidePopup(`Animes coletados com sucesso`,`success`);
+                showAndHidePopup('Animes coletados com sucesso', 'success');
             }
         }
-    },[loading,error,animeData])
+    }, [loading, error, animeData]);
 
 
-
-
-    const hadleInputChange = (e) => {
+    const handleInputChange = (e) => {
         setAnimeDigitado(e.target.value);
-
-    };
+    }
 
     function BuscarOAnime() {
         setAnimeName(animeDigitado);
     }
 
     return (
-        <div className='form-anime'>
-            <input type="text" placeholder='Coloque o nome do anime' value={animeDigitado} onChange={hadleInputChange}></input>
-            <button onClick={() => BuscarOAnime()}> Pesquisar </button>
-            {loading && <div>Loading...</div>}
-            {error && <div>Error</div>}
-            {Array.isArray(animeData) ? (
-                <div>
-                    {animeData.map((a) => (
-                        <AnimeCard key={a.mal_id}{...a}/>
-                    ))}
-                </div>
-            ) : (animeData && <div> Sem nenhum anime</div>)}
+        <div>
+            <div className="search-box">
+                <input type="text" placeholder="Enter anime name" value={animeDigitado} onChange={handleInputChange} className="search-input"/>
+                <button onClick={() => BuscarOAnime()} className="search-icon">Pesquisar</button>
+            </div>
 
-            {showPopup ? (<Popup message={popupContent.message} color={popupContent.color} />): null}
-            
+            {loading && <div>Loading...</div>}
+            {error && <div>Error: {error}</div>}
+            {Array.isArray(animeData) ? (
+                <div className='anime-cards'>
+                    {animeData.map((a) => (
+                        <AnimeCard key={a.mal_id}{...a}></AnimeCard>))}
+                </div>
+            ) : (animeData && <div> Sem Nenhum anime </div>)}
+            {
+                showPopup ? <Popup message={popupContent.message} color={popupContent.color} /> : null
+                // showPopup = true ? <mostre o popup> ou nao mostre nada se ele for falso
+            }
         </div>
-    )
+    );
 }
 
 export default AnimePage;

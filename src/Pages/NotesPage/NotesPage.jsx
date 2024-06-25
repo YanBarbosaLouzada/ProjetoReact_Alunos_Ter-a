@@ -7,11 +7,11 @@ function NotesPage() {
     return ( //dizendo que essa pagina vai usar um dos componentes que esta usando o notecontext
         <NoteProvider> 
             <div className='notesPageContainer'> 
-                <FormNote></FormNote>   
+                <FormNote></FormNote>
                 <AllNotes></AllNotes>
             </div>
         </NoteProvider>
     )
 }
 
-export default NotesPage
+export default NotesPage;
